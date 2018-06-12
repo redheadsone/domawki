@@ -4,16 +4,12 @@ const LOGIN_ERROR = "Error: incorrect login/name";
 var input = { login: "", password: "" };
 input.login = prompt("input name");
 
-// var trueName = "Daria";
-// var truePassword = "123";
-
 var trueUser = { name: "vova", password: "123" };
 
 if (input.login === trueUser.name) {
   input.password = prompt("input password");
 
   if (input.password === trueUser.password) {
-    //  alert("Hi,Daria!");
   } else {
     input.password = prompt(PASSWORD_ERROR);
   }
