@@ -2,9 +2,9 @@ const PASSWORD_ERROR = "Error: incorrect Password. Try again";
 const LOGIN_ERROR = "Error: incorrect login/name";
 
 var input = { login: "", password: "" };
-input.login = prompt("input name");
-
 var trueUser = { name: "vova", password: "123" };
+
+input.login = prompt("input name");
 
 if (input.login === trueUser.name) {
   input.password = prompt("input password");
