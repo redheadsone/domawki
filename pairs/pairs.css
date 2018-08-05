@@ -10,10 +10,11 @@ body {
 }
 .board {
   border: solid 5px lightsalmon;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  width: 520px;
-  height: 520px;
+  width: 530px;
+  height: 530px;
 }
 
 .cell {
