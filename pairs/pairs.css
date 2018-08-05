@@ -1,0 +1,60 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: inherit;
+  align-items: center;
+}
+.board {
+  border: solid 5px lightsalmon;
+  display: flex;
+  flex-wrap: wrap;
+  width: 520px;
+  height: 520px;
+}
+
+.cell {
+  box-shadow: 0px 0px 0px 2px;
+  position: relative;
+  width: 110px;
+  height: 110px;
+  box-sizing: border-box;
+  font-size: 80px;
+  line-height: 100px;
+  text-align: center;
+  margin: 10px;
+  user-select: none;
+}
+
+.cell.disabled {
+  visibility: hidden;
+}
+
+/* .char,.bg {} */
+.cell > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 200ms;
+}
+
+.bg {
+  background-color: dimgrey;
+}
+
+.char {
+  /* visibility: hidden; */
+  opacity: 0;
+}
+
+.cell.selected > .char {
+  /* visibility: visible; */
+  opacity: 1;
+}
+.cell.selected > .bg {
+  /* visibility: hidden; */
+  opacity: 0;
+}
