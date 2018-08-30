@@ -22,6 +22,25 @@ function addCell(value) {
   board.append(cellElement);
 }
 
+let timerElement = document.getElementById("timer");
+let timeLeft = 0;
+
+function timer() {
+  timerElement.textContent = timeLeft;
+  timeLeft--;
+  if (timeLeft < 0) {
+    alert("Game over");
+  } else {
+    setTimeout(timer, 1000);
+  }
+}
+
+function startGame() {
+  fillBoard();
+  timeLeft = 50;
+  timer();
+}
+
 function random(max) {
   return Math.floor(Math.random() * max);
 }
@@ -41,37 +60,51 @@ let openedElement = null;
 function selectCell(event) {
   let currentElement = event.target.parentElement;
 
-  if (currentElement.classList.contains("cell") === true) {
-    if (openedElement === null) {
-      openedElement = currentElement;
-      currentElement.classList.add("selected");
-    } else {
-      if (openedElement === currentElement) {
-        openedElement.classList.remove("selected");
-        openedElement = null;
-        return;
-      }
+  if (currentElement.classList.contains("cell") === false) {
+    return;
+  }
 
-      currentElement.classList.add("selected");
+  if (openedElement === null) {
+    openedElement = currentElement;
+    currentElement.classList.add("selected");
+  } else {
+    if (openedElement === currentElement) {
+      openedElement.classList.remove("selected");
+      openedElement = null;
+      return;
+    }
 
-      let char1 = openedElement.querySelector(".char").textContent;
-      let char2 = currentElement.querySelector(".char").textContent;
+    currentElement.classList.add("selected");
 
+    let char1 = openedElement.querySelector(".char").textContent;
+    let char2 = currentElement.querySelector(".char").textContent;
+
+    if (char1 === char2) {
       setTimeout(function() {
-        if (char1 === char2) {
-          openedElement.classList.add("disabled");
-          currentElement.classList.add("disabled");
-          openedElement = null;
-        } else {
-          currentElement.classList.remove("selected");
-          openedElement.classList.remove("selected");
-          openedElement = null;
-        }
+        hideCards(openedElement, currentElement);
+        openedElement = null;
+      }, 500);
+    } else {
+      setTimeout(function() {
+        flipCards(openedElement, currentElement);
+        openedElement = null;
       }, 500);
     }
   }
 }
 
+function flipCards(elem1, elem2) {
+  elem1.classList.remove("selected");
+  elem2.classList.remove("selected");
+}
+function hideCards(elem1, elem2) {
+  elem1.classList.add("disabled");
+  elem2.classList.add("disabled");
+}
+
+let buttonStart = document.querySelector(".btn-start");
 document.body.onclick = selectCell;
 
-fillBoard();
+buttonStart.onclick = startGame;
+
+//buttonStart.addEventListener('click', startGame);

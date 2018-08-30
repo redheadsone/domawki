@@ -7,7 +7,21 @@ body {
   justify-content: center;
   height: inherit;
   align-items: center;
+  flex-direction: column;
 }
+.time {
+  display: flex;
+  padding: 30px;
+  font-size: 60px;
+  font-family: "Franklin Gothic Medium";
+  text-transform: uppercase;
+  align-items: center;
+}
+#timer {
+  padding-left: 7px;
+  font-size: 77px;
+}
+
 .board {
   border: solid 5px lightsalmon;
   box-sizing: border-box;
