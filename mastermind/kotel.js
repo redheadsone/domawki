@@ -11,7 +11,7 @@ function selectBall(event) {
   }
 }
 
-let currentCombination = [];
+let currentCombination = []; // комбинашка которую я натыкала
 
 //row current
 let currentRow = document.body.querySelector(".row.current");
@@ -28,8 +28,18 @@ function addBall(color) {
   if (currentCombination.length === 4) {
   }
 }
+enigma = generateCombination();
+function checkCombination(currentCombination, enigma) {
+  let bull = {};
+  let cow = {};
+  bull = 0;
+  cow = 0;
+  for (var i = 0; i < combinationLength; i++) {
+    if (currentCombination[i] === enigma[i]) {
+      bull++;
+    }
+  }
 
-function checkCombination() {
   // <div class="check">
   //     <div class="cell mini bull"></div>
   //     <div class="cell mini cow"></div>
