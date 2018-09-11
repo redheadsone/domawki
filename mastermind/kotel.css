@@ -1,0 +1,102 @@
+html {
+  height: 100%;
+}
+body {
+  background-color: lightgray;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.check {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 60px;
+}
+.cell {
+  --size: 60px;
+  --blick: 20px;
+  height: var(--size);
+  width: var(--size);
+  background-color: grey;
+  margin: 5px;
+  border-radius: 50%;
+
+  background-image: radial-gradient(
+      circle at var(--blick) var(--blick),
+      white 0%,
+      transparent 10%
+    ),
+    radial-gradient(
+      #ffffff4d 0%,
+      #ffffff00 28%,
+      #08080882 62%,
+      white 65%,
+      black 73%
+    ),
+    linear-gradient(var(--color), var(--color));
+}
+.cell:hover {
+  animation: 300ms filtering ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+@keyframes filtering {
+  0% {
+    filter: brightness(0.9);
+  }
+  100% {
+    filter: brightness(1.2);
+  }
+}
+.mini {
+  --size: 20px;
+  --blick: 5px;
+  background-image: radial-gradient(
+      circle at var(--blick) var(--blick),
+      white 0%,
+      transparent 10%
+    ),
+    radial-gradient(#ffffff4d 0%, #ffffff00 28%, #08080882 62%, black 73%),
+    linear-gradient(var(--color), var(--color));
+}
+[color="a"] {
+  --color: #ff0073;
+}
+[color="b"] {
+  --color: greenyellow;
+}
+[color="c"] {
+  --color: #24dcf6;
+}
+[color="d"] {
+  --color: #ed74e8;
+}
+[color="e"] {
+  --color: #ff5400;
+}
+[color="f"] {
+  --color: #ffe000;
+}
+.bull {
+  --color: black;
+}
+.cow {
+  --color: white;
+}
+.controls .cell {
+  --size: 50px;
+  --blick: 15px;
+}

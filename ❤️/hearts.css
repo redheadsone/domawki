@@ -1,0 +1,42 @@
+.heart {
+  position: relative;
+  width: 65px;
+  height: 65px;
+
+  left: 50vw;
+  top: 50vh;
+  background-color: #b71c1c;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  display: block;
+
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  border-radius: 80px 80px 0px 80px;
+}
+
+.heart:before {
+  top: 0px;
+  left: -40px;
+}
+
+.heart:after {
+  top: -40px;
+  left: 0px;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1.7) rotate(43deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(2) rotate(47deg) translate(-50%, -50%);
+    opacity: 0.8;
+  }
+}
