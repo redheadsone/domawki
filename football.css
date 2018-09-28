@@ -1,0 +1,26 @@
+body {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.field {
+  position: relative;
+  background-color: greenyellow;
+  height: 500px;
+  width: 500px;
+  border: 5px solid darkgrey;
+}
+
+.ball {
+  left: 0px;
+  top: 0px;
+  background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/soccer-ball_26bd.png);
+  background-size: 100px 100px;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  transition: all 500ms ease-in-out;
+}

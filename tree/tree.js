@@ -53,7 +53,8 @@ const dataSet = {
 };
 var container = document.querySelector("#container");
 
-createTree(container, dataSet);
+createTree(container, superheroes);
+
 function createTree(element, treesData) {
   //do stuff here
 
@@ -83,3 +84,9 @@ function createTree(element, treesData) {
   }
   element.appendChild(list1);
 }
+
+function switchBranch(event) {
+  event.target.classList.toggle("hidden");
+}
+
+document.body.addEventListener("click", switchBranch);

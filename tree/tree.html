@@ -7,36 +7,28 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <style>
+        li {
+            cursor: pointer;
+            color: palevioletred;
+        }
 
+        .hidden {
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+
+        .hidden>ul {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
 
     <div id="container"></div>
-    <ul>
-        <li>dawa
 
-            <ul>
-                <li>molo4ko</li>
-                <li>hleb</li>
-            </ul>
-        </li>
-
-        <li>vova
-            <ul>
-                <li>omletik
-                    <ul>
-                        <li>yaichki</li>
-                        <li>tomato</li>
-                    </ul>
-                </li>
-
-
-                <li>kolbaska</li>
-            </ul>
-        </li>
-    </ul>
     <script src="tree.js"></script>
 </body>
 
