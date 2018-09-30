@@ -129,7 +129,11 @@ ballsContainer.addEventListener("click", selectBall);
 
 enigma = generateCombination(); // = это присваиваем
 
-function removeLastBall() {
+function removeLastBall(event) {
+  if (!event.target.classList.contains("current")) {
+    return;
+  }
+
   let currentRow = document.body.querySelector(".row.current");
 
   let ball = currentRow.lastChild; // берем последний шар натыкивания
@@ -139,5 +143,5 @@ function removeLastBall() {
     currentCombination.pop();
   }
 }
-let buttonUndo = document.querySelector(".btn-undo");
+let buttonUndo = document.querySelector(".board");
 buttonUndo.addEventListener("click", removeLastBall);
