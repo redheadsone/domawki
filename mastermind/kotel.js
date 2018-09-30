@@ -128,3 +128,16 @@ let ballsContainer = document.body.querySelector(".controls");
 ballsContainer.addEventListener("click", selectBall);
 
 enigma = generateCombination(); // = это присваиваем
+
+function removeLastBall() {
+  let currentRow = document.body.querySelector(".row.current");
+
+  let ball = currentRow.lastChild; // берем последний шар натыкивания
+  if (ball !== null) {
+    ball.remove();
+
+    currentCombination.pop();
+  }
+}
+let buttonUndo = document.querySelector(".btn-undo");
+buttonUndo.addEventListener("click", removeLastBall);
