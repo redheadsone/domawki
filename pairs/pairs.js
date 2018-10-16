@@ -2,8 +2,8 @@ let board = document.body.querySelector(".board");
 
 const characters = ["🧛‍", "🧙‍", "🧞‍", "🧝‍", "🧜", "👽", "👻", "👹"];
 const closedCell = "❓";
-
-function addCell(value) {
+//value = char
+function createCell(value) {
   let cellElement = document.createElement("div");
   cellElement.classList.add("cell");
 
@@ -19,25 +19,38 @@ function addCell(value) {
   cellElement.append(charElement);
 
   //cellElement.textContent = value;
-  board.append(cellElement);
+  return cellElement;
 }
 
 let timerElement = document.getElementById("timer");
 let timeLeft = 0;
+
+let timerId;
+
+function isVictory() {
+  let victory =
+    board.querySelectorAll(".disabled").length === board.children.length;
+  return victory;
+}
 
 function timer() {
   timerElement.textContent = timeLeft;
   timeLeft--;
   if (timeLeft < 0) {
     alert("Game over");
+
+    //disable board
+  } else if (isVictory()) {
+    alert("Victory!");
   } else {
-    setTimeout(timer, 1000);
+    timerId = setTimeout(timer, 1000);
   }
 }
 
 function startGame() {
   fillBoard();
   timeLeft = 50;
+  clearTimeout(timerId);
   timer();
 }
 
@@ -46,16 +59,21 @@ function random(max) {
 }
 
 function fillBoard() {
+  //ощищаем поле чтобы повторно не создавалось новое рядом
+  board.innerHTML = "";
+
   let pairs = characters.concat(characters);
   const count = pairs.length;
   for (let x = 0; x < count; x++) {
     let randomIndex = random(pairs.length);
     let charToAdd = pairs.splice(randomIndex, 1);
-    addCell(charToAdd);
+    let cellElement = createCell(charToAdd);
+    board.append(cellElement);
   }
 }
 
 let openedElement = null;
+let flipFlopTimerId;
 
 function selectCell(event) {
   let currentElement = event.target.parentElement;
@@ -67,30 +85,30 @@ function selectCell(event) {
   if (openedElement === null) {
     openedElement = currentElement;
     currentElement.classList.add("selected");
-  } else {
-    if (openedElement === currentElement) {
-      openedElement.classList.remove("selected");
-      openedElement = null;
-      return;
-    }
-
-    currentElement.classList.add("selected");
-
-    let char1 = openedElement.querySelector(".char").textContent;
-    let char2 = currentElement.querySelector(".char").textContent;
-
-    if (char1 === char2) {
-      setTimeout(function() {
-        hideCards(openedElement, currentElement);
-        openedElement = null;
-      }, 500);
-    } else {
-      setTimeout(function() {
-        flipCards(openedElement, currentElement);
-        openedElement = null;
-      }, 500);
-    }
+    return;
   }
+
+  if (openedElement === currentElement) {
+    openedElement.classList.remove("selected");
+    openedElement = null;
+    return;
+  }
+
+  //if 2nd selected
+  currentElement.classList.add("selected");
+
+  let char1 = openedElement.querySelector(".char").textContent;
+  let char2 = currentElement.querySelector(".char").textContent;
+
+  flipFlopTimerId = setTimeout(function() {
+    if (char1 === char2) {
+      hideCards(openedElement, currentElement);
+      openedElement = null;
+    } else {
+      flipCards(openedElement, currentElement);
+      openedElement = null;
+    }
+  }, 500);
 }
 
 function flipCards(elem1, elem2) {

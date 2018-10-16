@@ -44,10 +44,6 @@ body {
   user-select: none;
 }
 
-.cell.disabled {
-  visibility: hidden;
-}
-
 /* .char,.bg {} */
 .cell > * {
   position: absolute;
@@ -60,16 +56,39 @@ body {
   background-color: dimgrey;
 }
 
-.char {
-  /* visibility: hidden; */
+/* NOT SELECTED - [?] */
+.cell:not(.selected) > .char {
   opacity: 0;
+  animation: close 1s;
 }
 
+.cell:not(.selected) > .bg {
+  opacity: 1;
+}
+
+/* SELECTED - [🧛‍] */
 .cell.selected > .char {
-  /* visibility: visible; */
   opacity: 1;
 }
 .cell.selected > .bg {
-  /* visibility: hidden; */
   opacity: 0;
+}
+
+/* DISABLED - [X] */
+.cell.disabled {
+  opacity: 0;
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
