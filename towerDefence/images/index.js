@@ -5,6 +5,7 @@ function getImage(path) {
 }
 
 const IMAGES = {
+  DEBUG: getImage("debug.png"),
   //env
   OAK: getImage("environment/deciduous-tree_1f333.png"),
   PINE: getImage("environment/evergreen-tree_1f332.png"),
