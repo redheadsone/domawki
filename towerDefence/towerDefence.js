@@ -97,8 +97,13 @@ function gameLoop() {
 
 gameLoop();
 
-game.addEventListener("click", function({ layerX: x, layerY: y }) {
-  useTool(gameObjects, { x, y });
+let toolActive = false;
+
+game.addEventListener("mousedown", () => (toolActive = true));
+game.addEventListener("mouseup", () => (toolActive = false));
+
+game.addEventListener("mousemove", function({ layerX: x, layerY: y }) {
+  toolActive && useTool(gameObjects, { x, y });
 });
 
 //game.addEventListener("mousemove", highlightEnv);
