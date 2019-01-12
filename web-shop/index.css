@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "./card.css";
+@import "./button.css";
+@import "./item.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #ffffff;
+}
+
+:root {
+  --primary-color: #00a295;
+}
+
+.items {
+  flex-wrap: wrap;
+  display: flex;
+}
