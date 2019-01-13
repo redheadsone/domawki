@@ -6,14 +6,37 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #ffffff;
+  background-color: #eeeeee;
 }
 
 :root {
   --primary-color: #00a295;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: lightgrey;
+  z-index: 1;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart-popup {
+  position: absolute;
+  right: 0;
+  padding: 8px;
+}
+
 .items {
   flex-wrap: wrap;
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
