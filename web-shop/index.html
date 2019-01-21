@@ -11,16 +11,20 @@
     <header>
       web shop
 
-      <div class="cart">
-        <button class="outlined btn-cart">
+      <div class="shopping-cart">
+        <button class="outlined btn-shopping-cart">
           <i class="material-icons"> shopping_cart </i>
-          <div class="cart-count">0</div>
+          <div class="shopping-cart__count">0</div>
         </button>
-        <div class="cart-popup card hidden">
-          <div class="cart-list"></div>
-          <span> <span class="cart-total">0</span> uah </span>
+        <div class="shopping-cart__popup card hidden">
+          <div class="shopping-cart__list"></div>
 
-          <button class="contained">checkout</button>
+          <div class="actions">
+            <span class="shopping-cart__total">
+              Total: <span class="shopping-cart__total__price">0</span> UAH
+            </span>
+            <button class="contained">checkout</button>
+          </div>
         </div>
       </div>
     </header>

@@ -3,7 +3,7 @@
 @import "./card.css";
 @import "./button.css";
 @import "./item.css";
-
+@import "./mini-item.css";
 body {
   font-family: "Roboto", sans-serif;
   background-color: #eeeeee;
@@ -22,14 +22,19 @@ header {
   z-index: 1;
 }
 
-.cart {
+.shopping-cart {
   position: relative;
 }
 
-.cart-popup {
+.shopping-cart__popup {
   position: absolute;
   right: 0;
-  padding: 8px;
+}
+
+.shopping-cart__total {
+  white-space: nowrap;
+  padding-right: 8px;
+  font-weight: bold;
 }
 
 .items {
