@@ -2,14 +2,6 @@
   width: 250px;
 }
 
-.item > .actions {
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 8px 16px 8px 16px;
-  width: 100%;
-}
-
 .item > .image {
   width: 100%;
 }
@@ -28,12 +20,4 @@
   box-sizing: border-box;
   padding: 8px 16px 8px 16px;
   width: 100%;
-}
-
-.primary {
-  font-size: 24px;
-}
-
-.secondary {
-  font-size: 14px;
 }

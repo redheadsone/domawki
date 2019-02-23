@@ -16,3 +16,21 @@
   font-size: 16px;
   color: #000000de;
 }
+
+.card > .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 16px 8px 16px;
+  width: 100%;
+}
+.card .primary {
+  font-size: 24px;
+  color: #000000de;
+}
+
+.card .secondary {
+  font-size: 14px;
+  color: #00000099;
+}
