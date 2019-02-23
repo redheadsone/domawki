@@ -4,36 +4,13 @@ import { useTool } from "./toolkit.js";
 
 import Environment from "./components/environment.js";
 import Monster from "./components/monster.js";
+import { createGameComponent } from "./components/index.js";
+import { saveFile, loadFile } from "./file-helper.js";
 
 let game = document.querySelector("#game");
 let ctx = game.getContext("2d");
 
-//let ghostImg = document.querySelector("#ghost");
-
-function drawChar({ x, y, size, image }, showBg = false) {
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.font = `${size}px Arial`;
-  ctx.fillStyle = "magenta";
-  // ctx.beginPath();
-  // ctx.ellipse(
-  //   x + size / 2,
-  //   y + size / 2,
-  //   size / 2,
-  //   size / 2,
-  //   0,
-  //   0,
-  //   2 * Math.PI
-  // );
-  //ctx.fill();
-  if (showBg) {
-    ctx.fillRect(x, y, size, size);
-  }
-  // ctx.fillText("👻", x + size / 2, y + size / 2 + (size / 25) * 2);
-  ctx.drawImage(image, x, y, size, size);
-}
-
-let gameObjects = [
+const gameObjects = [
   new Environment({
     x: 20,
     y: 20,
@@ -97,14 +74,41 @@ function gameLoop() {
 
 gameLoop();
 
-let toolActive = false;
+let toolActive = true;
 
-game.addEventListener("mousedown", () => (toolActive = true));
-game.addEventListener("mouseup", () => (toolActive = false));
-
-game.addEventListener("mousemove", function({ layerX: x, layerY: y }) {
+game.addEventListener("click", function({ layerX: x, layerY: y }) {
+  // console.log(x, y);
   toolActive && useTool(gameObjects, { x, y });
 });
+
+function saveLevel() {
+  let levelData = JSON.stringify(gameObjects);
+
+  saveFile({ data: levelData, fileName: "level.json", type: "text/json" });
+}
+
+function loadLevelFile() {
+  function loadLevel(levelData) {
+    let gamecomps = JSON.parse(levelData).map(createGameComponent);
+
+    gameObjects.splice(0);
+    if (gamecomps.length > 0) {
+      gameObjects.push(...gamecomps);
+    }
+  }
+
+  loadFile(loadLevel);
+}
+
+document.querySelector(".btn-save").addEventListener("click", saveLevel);
+document.querySelector(".btn-load").addEventListener("click", loadLevelFile);
+
+// game.addEventListener("mousedown", () => (toolActive = true));
+// game.addEventListener("mouseup", () => (toolActive = false));
+
+// game.addEventListener("mousemove", function({ layerX: x, layerY: y }) {
+//   toolActive && useTool(gameObjects, { x, y });
+// });
 
 //game.addEventListener("mousemove", highlightEnv);
 //let mousePoint = { x: 0, y: 0 };

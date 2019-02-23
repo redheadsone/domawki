@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/towers/crystal-ball_1f52e.png"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="towerDefence.css"
+    />
+  </head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="towerDefence.css" />
-
-</head>
-
-<body>
-
+  <body>
     <!-- todo: add buttons to draw different stuff:
     trees, rocks, mushrooms, flowers, towers etc...
     create those buttons from code 
     make an array with all types of stuff
     and generate all those button on the fly!
      -->
-    <div class="controls"></div>
+
+    <div class="tools"></div>
     <div class="environment"></div>
 
-    <canvas id="game" width="800" height="600">
-    </canvas>
+    <div class="main">
+      <div class="controls">
+        <button class="btn-save">
+          <i class="icon-save"></i>
+          save
+        </button>
+        <button class="btn-load">
+          <i class="icon-load"></i>
+          load
+        </button>
+      </div>
 
+      <canvas id="game" width="800" height="600"> </canvas>
+    </div>
 
     <script src="images/index.js" type="module"></script>
     <script src="components/environment.js" type="module"></script>
@@ -33,7 +51,5 @@
 
     <script src="collision.js" type="module"></script>
     <script src="towerDefence.js" type="module"></script>
-
-</body>
-
+  </body>
 </html>

@@ -1,5 +1,11 @@
 import IMAGES from "../images/index.js";
 
+export function getImage(path) {
+  let imgElement = document.createElement("img");
+  imgElement.src = "images/" + path;
+  return imgElement;
+}
+
 const defaults = {
   x: 0,
   y: 0,
@@ -10,30 +16,22 @@ const defaults = {
 export default class GameComponent {
   constructor(props) {
     Object.assign(this, defaults, props);
+    this["@class"] = this.constructor.name;
+    this._imageEl = getImage(props.image);
   }
 
+  /**
+   *  draws image on provided canvas
+   * @param ctx canvas context
+   */
   draw(ctx) {
-    let { x, y, size, image } = this;
+    let { x, y, size, _imageEl } = this;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.font = `${size}px Arial`;
     ctx.fillStyle = "magenta";
-    // ctx.beginPath();
-    // ctx.ellipse(
-    //   x + size / 2,
-    //   y + size / 2,
-    //   size / 2,
-    //   size / 2,
-    //   0,
-    //   0,
-    //   2 * Math.PI
-    // );
-    //ctx.fill();
-    // if (showBg) {
-    //   ctx.fillRect(x, y, size, size);
-    // }
-    // ctx.fillText("👻", x + size / 2, y + size / 2 + (size / 25) * 2);
-    ctx.drawImage(image, x, y, size, size);
+
+    ctx.drawImage(_imageEl, x, y, size, size);
   }
 
   update() {}

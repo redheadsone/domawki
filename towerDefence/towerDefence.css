@@ -1,3 +1,5 @@
+@import "./icons.css";
+
 body {
   margin: 0;
   display: flex;
@@ -11,23 +13,34 @@ canvas {
   background-color: #9ec79e;
 }
 
-.controls {
-  display: flex;
-  flex-direction: column;
+:root {
+  --toolSize: 50px;
 }
-.environment {
+
+.tools {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  flex: 0 0 calc(var(--toolSize) * 2);
+}
+.controls {
   display: flex;
   flex-direction: row;
 }
 
+.controls > button {
+  margin: 10px;
+}
+
 .tool {
-  --toolSize: 50px;
   width: var(--toolSize);
   height: var(--toolSize);
 
   padding: 0;
   border: none;
   box-shadow: 0 0 1px 0px black;
+  user-select: none;
 }
 
 .tool:active,
