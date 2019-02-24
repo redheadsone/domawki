@@ -1,6 +1,6 @@
 import IMAGES from "./images/index.js";
 import { collidePointWithCircle } from "./collision.js";
-import { Monster, Environment } from "./components/index.js";
+import { Monster, Environment, Spawner } from "./components/index.js";
 import { getImage } from "./components/game-component.js";
 
 let flowersSize = 30;
@@ -11,8 +11,6 @@ const tools = [
   {
     image: IMAGES.SCISSORS,
     action(gameObjects, { x, y }) {
-      let size = 70;
-
       function IsThatObject(gameObject) {
         let collided = collidePointWithCircle(
           { x, y },
@@ -29,6 +27,56 @@ const tools = [
       const GOIndex = gameObjects.findIndex(IsThatObject);
       if (GOIndex < 0) return;
       gameObjects.splice(GOIndex, 1);
+    }
+  },
+  {
+    image: IMAGES.DEBUG,
+    //function
+    action(gameObjects, { x, y }) {
+      let size = flowersSize;
+
+      gameObjects.push(
+        new Spawner({
+          x: x - size / 2,
+          y: y - size / 2,
+          image: this.image,
+          size: size,
+
+          spawn(go) {
+            gameObjects.push(go);
+          },
+          entries: [
+            {
+              x: 386,
+              y: 506,
+              size: 50,
+              image: IMAGES.SCORPION,
+              vx: 2,
+              vy: 2,
+              "@class": "Monster"
+            },
+            {
+              x: 386,
+              y: 506,
+              size: 50,
+              image: IMAGES.JINNY,
+              vx: 2,
+              vy: 2,
+              "@class": "Monster"
+            },
+            {
+              x: 386,
+              y: 506,
+              size: 50,
+              image: IMAGES.DRAGON,
+              vx: 2,
+              vy: 2,
+              "@class": "Monster"
+            }
+          ],
+          interval: 1000
+        })
+      );
     }
   },
   {

@@ -2,9 +2,11 @@ import { collidePointWithCircle } from "./collision.js";
 import IMAGES from "./images/index.js";
 import { useTool } from "./toolkit.js";
 
-import Environment from "./components/environment.js";
-import Monster from "./components/monster.js";
-import { createGameComponent } from "./components/index.js";
+import {
+  createGameComponent,
+  Monster,
+  Environment
+} from "./components/index.js";
 import { saveFile, loadFile } from "./file-helper.js";
 
 let game = document.querySelector("#game");
