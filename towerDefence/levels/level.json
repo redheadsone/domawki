@@ -1,1 +1,52 @@
-[{"x":20,"y":20,"size":50,"image":"environment/deciduous-tree_1f333.png","@class":"Environment","_imageEl":{}},{"x":300,"y":70,"size":50,"image":"environment/evergreen-tree_1f332.png","@class":"Environment","_imageEl":{}},{"x":150,"y":150,"size":20,"image":"environment/mushroom_1f344.png","@class":"Environment","_imageEl":{}},{"x":200,"y":200,"size":40,"image":"environment/sunflower_1f33b.png","@class":"Environment","_imageEl":{}},{"x":426,"y":146,"size":50,"image":"monsters/vampire_1f9db.png","vx":-1,"vy":-1,"@class":"Monster","_imageEl":{}},{"x":696,"y":220,"size":50,"image":"monsters/snail_1f40c.png","vx":-2,"vy":2,"@class":"Monster","_imageEl":{}}]
+[
+  {
+    "x": 20,
+    "y": 20,
+    "size": 50,
+    "image": "environment/deciduous-tree_1f333.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 300,
+    "y": 70,
+    "size": 50,
+    "image": "environment/evergreen-tree_1f332.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 150,
+    "y": 150,
+    "size": 20,
+    "image": "environment/mushroom_1f344.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 200,
+    "y": 200,
+    "size": 40,
+    "image": "environment/sunflower_1f33b.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 426,
+    "y": 146,
+    "size": 50,
+    "image": "monsters/vampire_1f9db.png",
+    "speed": 1,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 696,
+    "y": 220,
+    "size": 50,
+    "image": "monsters/snail_1f40c.png",
+    "speed": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  }
+]

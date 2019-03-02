@@ -14,8 +14,6 @@ function createGameComponentFactory(context) {
 }
 
 function createGameComponent(props) {
-  //    {"x":386,"y":506,"size":50,"image":{"path":"monsters/snail_1f40c.png"},"vx":2,"vy":2,"@class":"Monster"}
-
   //const props = JSON.parse(jsonText);
 
   const currentClass = gameClasses.find(

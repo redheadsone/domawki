@@ -1,0 +1,252 @@
+[
+  {
+    "x": 20,
+    "y": 20,
+    "size": 50,
+    "image": "environment/deciduous-tree_1f333.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 300,
+    "y": 70,
+    "size": 50,
+    "image": "environment/evergreen-tree_1f332.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 150,
+    "y": 150,
+    "size": 20,
+    "image": "environment/mushroom_1f344.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 200,
+    "y": 200,
+    "size": 40,
+    "image": "environment/sunflower_1f33b.png",
+    "@class": "Environment",
+    "_imageEl": {}
+  },
+  {
+    "x": 472,
+    "y": 192,
+    "size": 50,
+    "image": "monsters/vampire_1f9db.png",
+    "speed": -1,
+    "vy": -1,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 716,
+    "y": 128,
+    "size": 50,
+    "image": "monsters/snail_1f40c.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 498,
+    "y": 242,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": 2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 122,
+    "y": 86,
+    "size": 30,
+    "image": "debug.png",
+    "entries": [
+      {
+        "x": 122,
+        "y": 86,
+        "size": 50,
+        "image": "monsters/scorpion_1f982.png",
+        "speed": 2,
+        "vy": 2,
+        "@class": "Monster"
+      },
+      {
+        "x": 122,
+        "y": 86,
+        "size": 50,
+        "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+        "speed": 2,
+        "vy": 2,
+        "@class": "Monster"
+      },
+      {
+        "x": 122,
+        "y": 86,
+        "size": 50,
+        "image": "monsters/dragon_1f409.png",
+        "speed": 2,
+        "vy": 2,
+        "@class": "Monster"
+      }
+    ],
+    "interval": 1000,
+    "@class": "Spawner",
+    "_imageEl": {}
+  },
+  {
+    "x": 378,
+    "y": 362,
+    "size": 50,
+    "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+    "speed": 2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 258,
+    "y": 482,
+    "size": 50,
+    "image": "monsters/dragon_1f409.png",
+    "speed": 2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 138,
+    "y": 502,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 16,
+    "y": 380,
+    "size": 50,
+    "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 92,
+    "y": 268,
+    "size": 50,
+    "image": "monsters/dragon_1f409.png",
+    "speed": -2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 208,
+    "y": 152,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": -2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 328,
+    "y": 32,
+    "size": 50,
+    "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+    "speed": -2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 448,
+    "y": 84,
+    "size": 50,
+    "image": "monsters/dragon_1f409.png",
+    "speed": -2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 568,
+    "y": 204,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": -2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 690,
+    "y": 326,
+    "size": 50,
+    "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+    "speed": -2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 694,
+    "y": 446,
+    "size": 50,
+    "image": "monsters/dragon_1f409.png",
+    "speed": 2,
+    "vy": -2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 574,
+    "y": 538,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 454,
+    "y": 418,
+    "size": 50,
+    "image": "monsters/woman-genie_1f9de-200d-2640-fe0f.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 334,
+    "y": 298,
+    "size": 50,
+    "image": "monsters/dragon_1f409.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  },
+  {
+    "x": 216,
+    "y": 180,
+    "size": 50,
+    "image": "monsters/scorpion_1f982.png",
+    "speed": 2,
+    "vy": 2,
+    "@class": "Monster",
+    "_imageEl": {}
+  }
+]
