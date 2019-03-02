@@ -6,14 +6,13 @@ export default class Spawner extends GameComponent {
     super(props);
 
     this.spawnEntries();
-
-    console.log("spawn");
   }
 
   update() {}
 
   async spawnEntries() {
-    while (true) {
+    //todo: bug on save when wave is generating
+    while (this.waveCount-- > 0) {
       for (let entry of this.entries) {
         entry.x = this.x;
         entry.y = this.y;
@@ -22,9 +21,9 @@ export default class Spawner extends GameComponent {
 
         this.getContext().push(go);
 
-        //wait 1s
         await delay(this.interval);
-      }
+      } //end wave
+      await delay(this.waveInterval);
     }
   }
 }

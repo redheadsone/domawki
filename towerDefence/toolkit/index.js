@@ -39,15 +39,14 @@ const tools = [
           y: y - size / 2,
           image: this.image,
           size: size,
-
+          interval: 500,
+          waveCount: 4,
+          waveInterval: 1500,
           //TODO: use create gc factory instead
           getContext() {
             return gameObjects;
           },
 
-          spawn(go) {
-            gameObjects.push(go);
-          },
           entries: [
             {
               x: 386,
@@ -76,8 +75,7 @@ const tools = [
               vy: 2,
               "@class": Monster.name
             }
-          ],
-          interval: 1000
+          ]
         })
       );
     }
