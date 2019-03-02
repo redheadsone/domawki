@@ -1,6 +1,6 @@
 import { collidePointWithCircle } from "./collision.js";
 import IMAGES from "./images/index.js";
-import { useTool } from "./toolkit.js";
+import { useTool } from "./toolkit/index.js";
 
 import {
   createGameComponent,
@@ -54,21 +54,23 @@ const gameObjects = [
 function gameLoop() {
   ctx.clearRect(0, 0, game.width, game.height);
 
-  for (let envObject of gameObjects) {
+  for (let go of gameObjects
+    .slice()
+    .sort((a, b) => a.y + a.size - b.y - b.size)) {
     // let collided = collidePointWithCircle(mousePoint, {
     //   cx: tree.x + tree.size / 2,
     //   cy: tree.y + tree.size / 2,
     //   r: tree.size / 2
     // });
 
-    envObject.draw(ctx);
+    go.draw(ctx);
     //drawChar(tree);
   }
 
-  for (let envObject of gameObjects) {
+  for (let go of gameObjects) {
     // monster.x += monster.vx;
     // monster.y += monster.vy;
-    envObject.update();
+    go.update();
   }
 
   requestAnimationFrame(gameLoop);

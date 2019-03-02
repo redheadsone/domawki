@@ -1,10 +1,9 @@
-import IMAGES from "./images/index.js";
-import { collidePointWithCircle } from "./collision.js";
-import { Monster, Environment, Spawner } from "./components/index.js";
-import { getImage } from "./components/game-component.js";
+import IMAGES from "../images/index.js";
+import { collidePointWithCircle } from "../collision.js";
+import { Monster, Spawner } from "../components/index.js";
+import { getImage } from "../components/game-component.js";
+import { environmentTools } from "./environment-tools.js";
 
-let flowersSize = 30;
-let treesSize = 80;
 let monstersSize = 40;
 
 const tools = [
@@ -31,9 +30,8 @@ const tools = [
   },
   {
     image: IMAGES.DEBUG,
-    //function
     action(gameObjects, { x, y }) {
-      let size = flowersSize;
+      let size = 30;
 
       gameObjects.push(
         new Spawner({
@@ -79,150 +77,7 @@ const tools = [
       );
     }
   },
-  {
-    image: IMAGES.PINE,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = treesSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.OAK,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = treesSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.PALM,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = treesSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.MUSHROOM,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = 20;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.SPIDERWEB,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = 20;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.FLOWER,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = flowersSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.BLOSSOM,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = flowersSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.TULIP,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = flowersSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
-  {
-    image: IMAGES.CACTUS,
-    //function
-    action(gameObjects, { x, y }) {
-      let size = treesSize;
-
-      gameObjects.push(
-        new Environment({
-          x: x - size / 2,
-          y: y - size / 2,
-          image: this.image,
-          size: size
-        })
-      );
-    }
-  },
+  ...environmentTools,
   {
     image: IMAGES.GHOST,
     //function
@@ -303,8 +158,8 @@ for (let tool of tools) {
   let toolButton = getImage(tool.image);
   toolButton.classList.add("tool");
   toolButton.setAttribute("tabindex", 0);
-  toolButton.action = tool.action;
-  toolButton.image = tool.image;
+  toolButton.action = (...args) => tool.action(...args);
+
   toolsEl.appendChild(toolButton);
 }
 
