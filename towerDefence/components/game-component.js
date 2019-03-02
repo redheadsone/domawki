@@ -34,5 +34,12 @@ export default class GameComponent {
     ctx.drawImage(_imageEl, x, y, size, size);
   }
 
+  /**
+   * 🚫OBSOLETE
+   */
   update() {}
+
+  getContext() {
+    throw "⚠context is not provided";
+  }
 }

@@ -20,7 +20,7 @@ export default class Spawner extends GameComponent {
 
         let go = createGameComponent(entry);
 
-        this.spawn(go);
+        this.getContext().push(go);
 
         //wait 1s
         await delay(this.interval);

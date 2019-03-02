@@ -5,6 +5,14 @@ import Spawner from "./spawner.js";
 
 const gameClasses = [Monster, Environment, Spawner];
 
+function createGameComponentFactory(context) {
+  const getContext = () => context;
+
+  return props => {
+    return createGameComponent({ ...props, getContext });
+  };
+}
+
 function createGameComponent(props) {
   //    {"x":386,"y":506,"size":50,"image":{"path":"monsters/snail_1f40c.png"},"vx":2,"vy":2,"@class":"Monster"}
 
@@ -21,4 +29,11 @@ export function delay(timeout) {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
-export { Monster, Environment, Spawner, GameComponent, createGameComponent };
+export {
+  Monster,
+  Environment,
+  Spawner,
+  GameComponent,
+  createGameComponent,
+  createGameComponentFactory
+};

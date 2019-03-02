@@ -40,6 +40,11 @@ const tools = [
           image: this.image,
           size: size,
 
+          //TODO: use create gc factory instead
+          getContext() {
+            return gameObjects;
+          },
+
           spawn(go) {
             gameObjects.push(go);
           },
@@ -51,7 +56,7 @@ const tools = [
               image: IMAGES.SCORPION,
               vx: 2,
               vy: 2,
-              "@class": "Monster"
+              "@class": Monster.name
             },
             {
               x: 386,
@@ -60,7 +65,7 @@ const tools = [
               image: IMAGES.JINNY,
               vx: 2,
               vy: 2,
-              "@class": "Monster"
+              "@class": Monster.name
             },
             {
               x: 386,
@@ -69,7 +74,7 @@ const tools = [
               image: IMAGES.DRAGON,
               vx: 2,
               vy: 2,
-              "@class": "Monster"
+              "@class": Monster.name
             }
           ],
           interval: 1000

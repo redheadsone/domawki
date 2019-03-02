@@ -1,11 +1,10 @@
-import { collidePointWithCircle } from "./collision.js";
 import IMAGES from "./images/index.js";
 import { useTool } from "./toolkit/index.js";
 
 import {
-  createGameComponent,
   Monster,
-  Environment
+  Environment,
+  createGameComponentFactory
 } from "./components/index.js";
 import { saveFile, loadFile } from "./file-helper.js";
 
@@ -93,7 +92,9 @@ function saveLevel() {
 
 function loadLevelFile() {
   function loadLevel(levelData) {
-    let gamecomps = JSON.parse(levelData).map(createGameComponent);
+    let gamecomps = JSON.parse(levelData).map(
+      createGameComponentFactory(gameObjects)
+    );
 
     gameObjects.splice(0);
     if (gamecomps.length > 0) {
