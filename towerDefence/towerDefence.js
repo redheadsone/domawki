@@ -38,15 +38,13 @@ const gameObjects = [
     image: IMAGES.VAMPIRE,
     x: 40,
     y: 160,
-    vx: -1,
-    vy: -1
+    speed: 1
   }),
   new Monster({
     image: IMAGES.SNAIL,
     x: 80,
     y: 200,
-    vx: 2,
-    vy: 2
+    speed: 2
   })
 ];
 
@@ -63,12 +61,9 @@ function gameLoop() {
     // });
 
     go.draw(ctx);
-    //drawChar(tree);
   }
 
   for (let go of gameObjects) {
-    // monster.x += monster.vx;
-    // monster.y += monster.vy;
     go.update();
   }
 

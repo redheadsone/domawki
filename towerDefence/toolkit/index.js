@@ -53,8 +53,7 @@ const tools = [
               y: 506,
               size: 50,
               image: IMAGES.SCORPION,
-              vx: 2,
-              vy: 2,
+              speed: 2,
               "@class": Monster.name
             },
             {
@@ -62,8 +61,7 @@ const tools = [
               y: 506,
               size: 50,
               image: IMAGES.JINNY,
-              vx: 2,
-              vy: 2,
+              speed: 2,
               "@class": Monster.name
             },
             {
@@ -71,8 +69,7 @@ const tools = [
               y: 506,
               size: 50,
               image: IMAGES.DRAGON,
-              vx: 2,
-              vy: 2,
+              speed: 2,
               "@class": Monster.name
             }
           ]
@@ -91,8 +88,7 @@ const tools = [
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
-          vx: 1,
-          vy: 1,
+          speed: 1,
           image: this.image,
           size: size
         })
@@ -109,8 +105,7 @@ const tools = [
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
-          vx: 1,
-          vy: 1,
+          speed: 1,
           image: this.image,
           size: size
         })
@@ -127,8 +122,7 @@ const tools = [
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
-          vx: 1,
-          vy: 1,
+          speed: 1,
           image: this.image,
           size: size
         })
@@ -145,8 +139,7 @@ const tools = [
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
-          vx: 1,
-          vy: 1,
+          speed: 1,
           image: this.image,
           size: size
         })
