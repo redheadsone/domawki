@@ -1,7 +1,11 @@
 const IMAGES = {
   DEBUG: "debug.png",
   // ui
+  SPAWN: "ui/children-crossing.png",
+  DESTROYER: "ui/no-pedestrians_1f6b7.png",
+  WAYPOINT: "ui/heavy-large-circle_2b55.png",
   SCISSORS: "ui/black-scissors_2702.png",
+
   //env
   OAK: "environment/deciduous-tree_1f333.png",
   PINE: "environment/evergreen-tree_1f332.png",

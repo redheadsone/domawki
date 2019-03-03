@@ -29,7 +29,7 @@ const tools = [
     }
   },
   {
-    image: IMAGES.DEBUG,
+    image: IMAGES.SPAWN,
     action(gameObjects, { x, y }) {
       let size = 30;
 
@@ -174,6 +174,5 @@ export function useTool(gameObjects, mousePosition) {
 
 toolsEl.addEventListener("click", selectTool);
 
-//todo: create button to save level!
 // use JSON.stringify() method on monsters/trees/ etc. array to get string with all stuff inside
 // THEN store everything to localStorage - read about this!
