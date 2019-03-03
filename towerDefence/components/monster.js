@@ -10,12 +10,16 @@ export default class Monster extends GameComponent {
   }
 
   async ai() {
-    let a = { x: 0, y: 0 };
-    let b = { x: 0, y: 600 };
-    let c = { x: 600, y: 0 };
-    let d = { x: 200, y: 100 };
+    this.targets = [
+      { x: 0, y: 0 },
+      { x: 0, y: 600 },
+      { x: 600, y: 0 },
+      { x: 200, y: 100 }
+    ].map(props => new GameComponent(props));
 
-    this.targets = [a, b, c, d];
+    //let GameComponents = this.getContext();
+
+    GameComponents.push(...this.targets);
 
     for (let target of this.targets) {
       while (

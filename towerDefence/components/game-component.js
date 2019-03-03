@@ -40,6 +40,6 @@ export default class GameComponent {
   update() {}
 
   getContext() {
-    throw "⚠context is not provided";
+    throw "📛context is not provided";
   }
 }
