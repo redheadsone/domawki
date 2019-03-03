@@ -19,7 +19,7 @@ export default class Spawner extends GameComponent {
 
         let go = createGameComponent(entry);
 
-        this.getContext().push(go);
+        this.getGameComponents().push(go);
 
         await delay(this.interval);
       } //end wave

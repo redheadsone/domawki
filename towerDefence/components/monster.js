@@ -19,7 +19,7 @@ export default class Monster extends GameComponent {
 
     //let GameComponents = this.getContext();
 
-    GameComponents.push(...this.targets);
+    //gameComponents.push(...this.targets);
 
     for (let target of this.targets) {
       while (

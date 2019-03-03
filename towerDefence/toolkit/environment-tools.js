@@ -4,8 +4,8 @@ import IMAGES from "../images/index.js";
 let flowersSize = 30;
 let treesSize = 80;
 
-function defaultToolAction(gameObjects, { x, y }) {
-  gameObjects.push(
+function defaultToolAction(gameComponents, { x, y }) {
+  gameComponents.push(
     new Environment({
       x: x - this.size / 2,
       y: y - this.size / 2,

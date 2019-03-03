@@ -5,11 +5,11 @@ import Spawner from "./spawner.js";
 
 const gameClasses = [Monster, Environment, Spawner];
 
-function createGameComponentFactory(context) {
-  const getContext = () => context;
+function createGameComponentFactory(gameComponents) {
+  const getGameComponents = () => gameComponents;
 
   return props => {
-    return createGameComponent({ ...props, getContext });
+    return createGameComponent({ ...props, getGameComponents });
   };
 }
 

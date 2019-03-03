@@ -9,7 +9,7 @@ let monstersSize = 40;
 const tools = [
   {
     image: IMAGES.SCISSORS,
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       function IsThatObject(gameObject) {
         let collided = collidePointWithCircle(
           { x, y },
@@ -23,17 +23,17 @@ const tools = [
         return collided;
       }
 
-      const GOIndex = gameObjects.findIndex(IsThatObject);
+      const GOIndex = gameComponents.findIndex(IsThatObject);
       if (GOIndex < 0) return;
-      gameObjects.splice(GOIndex, 1);
+      gameComponents.splice(GOIndex, 1);
     }
   },
   {
     image: IMAGES.SPAWN,
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       let size = 30;
 
-      gameObjects.push(
+      gameComponents.push(
         new Spawner({
           x: x - size / 2,
           y: y - size / 2,
@@ -43,8 +43,8 @@ const tools = [
           waveCount: 4,
           waveInterval: 1500,
           //TODO: use create gc factory instead
-          getContext() {
-            return gameObjects;
+          getGameComponents() {
+            return gameComponents;
           },
 
           entries: [
@@ -81,10 +81,10 @@ const tools = [
   {
     image: IMAGES.GHOST,
     //function
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       let size = monstersSize;
 
-      gameObjects.push(
+      gameComponents.push(
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
@@ -98,10 +98,10 @@ const tools = [
   {
     image: IMAGES.SPIDER,
     //function
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       let size = monstersSize;
 
-      gameObjects.push(
+      gameComponents.push(
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
@@ -115,10 +115,10 @@ const tools = [
   {
     image: IMAGES.FAIRY,
     //function
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       let size = monstersSize;
 
-      gameObjects.push(
+      gameComponents.push(
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
@@ -132,10 +132,10 @@ const tools = [
   {
     image: IMAGES.WORM,
     //function
-    action(gameObjects, { x, y }) {
+    action(gameComponents, { x, y }) {
       let size = monstersSize;
 
-      gameObjects.push(
+      gameComponents.push(
         new Monster({
           x: x - size / 2,
           y: y - size / 2,
@@ -166,9 +166,9 @@ function selectTool(event) {
   }
 }
 
-export function useTool(gameObjects, mousePosition) {
+export function useTool(gameComponents, mousePosition) {
   if (currentTool) {
-    currentTool.action(gameObjects, mousePosition);
+    currentTool.action(gameComponents, mousePosition);
   }
 }
 
