@@ -34,7 +34,7 @@ export const environmentTools = [
   },
   {
     image: IMAGES.MUSHROOM,
-    size: treesSize,
+    size: flowersSize,
     action: defaultToolAction
   },
   {

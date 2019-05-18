@@ -22,7 +22,7 @@ export default class Spawner extends GameComponent {
 
         this.getGameComponents().push(go);
 
-        await delay(this.interval);
+        await delay(this.entryInterval);
       } //end wave
       await delay(this.waveInterval);
     }

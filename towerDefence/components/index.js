@@ -3,7 +3,7 @@ import Environment from "./environment.js";
 import GameComponent from "./game-component.js";
 import Spawner from "./spawner.js";
 
-const gameClasses = [Monster, Environment, Spawner];
+const gameClasses = [Monster, Environment, Spawner, GameComponent];
 
 function createGameComponentFactory(gameComponents) {
   const getGameComponents = () => gameComponents;

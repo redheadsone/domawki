@@ -39,7 +39,7 @@ const tools = [
           y: y - size / 2,
           image: this.image,
           size: size,
-          interval: 500,
+          entryInterval: 500,
           waveCount: 4,
           waveInterval: 1500,
           //TODO: use create gc factory instead

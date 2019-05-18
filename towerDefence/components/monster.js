@@ -7,7 +7,9 @@ export default class Monster extends GameComponent {
   constructor(props) {
     super(props);
 
-    this.ai();
+    this.ai().catch(function(err) {
+      console.warn(err);
+    });
   }
 
   async ai() {
