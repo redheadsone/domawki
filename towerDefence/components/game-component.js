@@ -40,6 +40,6 @@ export default class GameComponent {
   update() {}
 
   getGameComponents() {
-    throw "📛context is not provided";
+    throw "📛gc is not provided";
   }
 }

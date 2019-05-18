@@ -1,6 +1,7 @@
 import GameComponent from "./game-component.js";
 import { delay } from "./index.js";
 import { collidePointWithCircle } from "../collision.js";
+import IMAGES from "../images/index.js";
 
 export default class Monster extends GameComponent {
   constructor(props) {
@@ -12,21 +13,24 @@ export default class Monster extends GameComponent {
   async ai() {
     this.targets = [
       { x: 0, y: 0 },
-      { x: 0, y: 600 },
+      { x: 0, y: 500 },
       { x: 600, y: 0 },
       { x: 200, y: 100 }
-    ].map(props => new GameComponent(props));
+    ].map(
+      props => new GameComponent({ ...props, image: IMAGES.WAYPOINT, size: 20 })
+    );
 
-    //let GameComponents = this.getContext();
+    let gameComponents = this.getGameComponents();
 
-    //gameComponents.push(...this.targets);
+    gameComponents.push(...this.targets);
 
     for (let target of this.targets) {
       while (
         !collidePointWithCircle(target, {
-          cx: this.x,
-          cy: this.y,
-          r: this.size
+          //todo: create cx cy in base gc class
+          cx: this.x + this.size / 4,
+          cy: this.y + this.size / 4,
+          r: this.size / 2
         })
       ) {
         let distance = { x: target.x - this.x, y: target.y - this.y };

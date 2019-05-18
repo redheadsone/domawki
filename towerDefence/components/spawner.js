@@ -17,6 +17,7 @@ export default class Spawner extends GameComponent {
         entry.x = this.x;
         entry.y = this.y;
 
+        entry.getGameComponents = () => this.getGameComponents();
         let go = createGameComponent(entry);
 
         this.getGameComponents().push(go);
