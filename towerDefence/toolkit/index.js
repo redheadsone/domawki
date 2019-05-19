@@ -3,13 +3,14 @@ import { collidePointWithCircle } from "../collision.js";
 import { Monster, Spawner } from "../components/index.js";
 import { getImage } from "../components/game-component.js";
 import { environmentTools } from "./environment-tools.js";
+import { gameComponents } from "../game-state/index.js";
 
 let monstersSize = 40;
 
 const tools = [
   {
     image: IMAGES.SCISSORS,
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       function IsThatObject(gameObject) {
         let collided = collidePointWithCircle(
           { x, y },
@@ -30,7 +31,7 @@ const tools = [
   },
   {
     image: IMAGES.SPAWN,
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       let size = 30;
 
       gameComponents.push(
@@ -81,7 +82,7 @@ const tools = [
   {
     image: IMAGES.GHOST,
     //function
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       let size = monstersSize;
 
       gameComponents.push(
@@ -98,7 +99,7 @@ const tools = [
   {
     image: IMAGES.SPIDER,
     //function
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       let size = monstersSize;
 
       gameComponents.push(
@@ -115,7 +116,7 @@ const tools = [
   {
     image: IMAGES.FAIRY,
     //function
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       let size = monstersSize;
 
       gameComponents.push(
@@ -132,7 +133,7 @@ const tools = [
   {
     image: IMAGES.WORM,
     //function
-    action(gameComponents, { x, y }) {
+    action({ x, y }) {
       let size = monstersSize;
 
       gameComponents.push(
@@ -166,9 +167,9 @@ function selectTool(event) {
   }
 }
 
-export function useTool(gameComponents, mousePosition) {
+export function useTool(mousePosition) {
   if (currentTool) {
-    currentTool.action(gameComponents, mousePosition);
+    currentTool.action(mousePosition);
   }
 }
 

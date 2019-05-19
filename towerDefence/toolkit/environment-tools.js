@@ -1,10 +1,11 @@
 import { Environment } from "../components/index.js";
 import IMAGES from "../images/index.js";
+import { gameComponents } from "../game-state/index.js";
 
 let flowersSize = 30;
 let treesSize = 80;
 
-function defaultToolAction(gameComponents, { x, y }) {
+function defaultToolAction({ x, y }) {
   gameComponents.push(
     new Environment({
       x: x - this.size / 2,

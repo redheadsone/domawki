@@ -1,22 +1,17 @@
-import IMAGES from "./images/index.js";
 import { useTool } from "./toolkit/index.js";
-
-import {
-  Monster,
-  Environment,
-  createGameComponentFactory
-} from "./components/index.js";
+import { createGameComponentFactory } from "./components/index.js";
 import { saveFile, loadFile } from "./file-helper.js";
+import { gameComponents } from "./game-state/index.js";
 
 let game = document.querySelector("#game");
 let ctx = game.getContext("2d");
 
-const gameComponents = [];
+//todo: extract gamecomponents to game state
 
 function gameLoop() {
   ctx.clearRect(0, 0, game.width, game.height);
 
-  for (let go of gameComponents
+  for (let gameComponent of gameComponents
     .slice()
     .sort((a, b) => a.y + a.size - b.y - b.size)) {
     // let collided = collidePointWithCircle(mousePoint, {
@@ -25,11 +20,11 @@ function gameLoop() {
     //   r: tree.size / 2
     // });
 
-    go.draw(ctx);
+    gameComponent.draw(ctx);
   }
 
-  for (let go of gameComponents) {
-    go.update();
+  for (let gameComponent of gameComponents) {
+    gameComponent.update();
   }
 
   requestAnimationFrame(gameLoop);
@@ -41,7 +36,7 @@ let toolActive = true;
 
 game.addEventListener("click", function({ layerX: x, layerY: y }) {
   // console.log(x, y);
-  toolActive && useTool(gameComponents, { x, y });
+  toolActive && useTool({ x, y });
 });
 
 function saveLevel() {
